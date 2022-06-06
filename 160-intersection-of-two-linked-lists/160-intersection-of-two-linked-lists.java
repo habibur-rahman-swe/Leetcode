@@ -11,16 +11,18 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        HashSet<ListNode> hs = new HashSet<>();
-        while (headA != null) {
-            hs.add(headA);
-            headA = headA.next;
+        ListNode slow = headA;
+        ListNode fast = headB;
+        
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+            
+            if (slow == fast) return slow;
+            if (slow == null) slow = headA;
+            if (fast == null) fast = headB; 
         }
         
-        while (headB != null) {
-            if (hs.contains(headB)) return headB;
-            headB = headB.next;
-        }
-        return null;
+        return slow;
     }
 }
