@@ -7,7 +7,7 @@ class Solution {
         for (int i = 1; i < n; i++) {
             if (nums[i-1] == nums[i]) ++cnt;
             else {
-                if (cnt < 3) return nums[i-1];
+                if (cnt == 1) return nums[i-1];
                 cnt = 1;
             }
         }
