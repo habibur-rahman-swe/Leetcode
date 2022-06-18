@@ -3,7 +3,7 @@ class Solution {
         int left, right;
         
         int n = s.length();
-        
+        int start = 0, end = 0;
         String res = "";
         
         for (int i = 0; i < n; i++) {
@@ -13,8 +13,9 @@ class Solution {
                 left--;
                 right++;
             }
-            if (right - left - 1 > res.length()) {
-                res = s.substring(left + 1, right);
+            if (right - left - 1 > end - start) {
+                start = left + 1;
+                end = right;
             }
             left = i;
             right = i + 1;
@@ -23,10 +24,13 @@ class Solution {
                 left--;
                 right++;
             }
-            if (right - left - 1 > res.length()) {
-                res = s.substring(left+1, right);
+            if (right - left - 1 > end - start) {
+                start = left + 1;
+                end = right;
             }
         }
+        
+        res = s.substring(start, end);
         
         return res;
     }
