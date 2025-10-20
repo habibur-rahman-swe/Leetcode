@@ -1,0 +1,17 @@
+// Last updated: 10/20/2025, 11:38:41 AM
+class Solution {
+    public int getLastMoment(int n, int[] left, int[] right) {
+        Arrays.sort(left);
+        Arrays.sort(right);
+        
+        if (left.length == 0) {
+            return n - right[0];
+        }
+        
+        if (right.length == 0) {
+            return left[left.length - 1];
+        }
+
+        return Math.max(n - right[0], left[left.length - 1]);
+    }
+}
