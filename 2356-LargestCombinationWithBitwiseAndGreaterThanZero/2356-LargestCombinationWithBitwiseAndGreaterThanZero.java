@@ -1,0 +1,16 @@
+// Last updated: 10/20/2025, 11:35:56 AM
+class Solution {
+    public int largestCombination(int[] candidates) {
+        int maxCount = 0;
+        for (int i = 0; i < 24; i++) {
+            int count = 0;
+            for (int num : candidates) {
+                if ((num & (1 << i)) != 0) {
+                    count++;
+                }
+            }
+            maxCount = Math.max(maxCount, count);
+        }
+        return maxCount;
+    }
+}
