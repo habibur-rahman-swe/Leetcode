@@ -1,0 +1,16 @@
+# Last updated: 10/20/2025, 11:36:19 AM
+class Solution:
+    def rearrangeArray(self, nums: List[int]) -> List[int]:
+        ans = [0] * len(nums)
+        pos, neg = 0, 1
+
+        for num in nums:
+            if num > 0:
+                ans[pos] = num;
+                pos += 2
+            else:
+                ans[neg] = num;
+                neg += 2
+
+        return ans;
+        
